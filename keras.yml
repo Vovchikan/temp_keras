@@ -1,0 +1,20 @@
+name: Keras
+channels:
+  - default
+dependencies:
+  - python=3.8.8
+  - tensorflow-gpu=2.3
+  - keras
+  - numpy=1.19
+  - matplotlib
+  - seaborn
+  - pandas
+  - scikit-learn=0.24
+  - scipy
+  - blas
+  - hdf5
+  - graphviz
+  - pydot
+  - cudatoolkit
+  - cudnn
+  - opencv

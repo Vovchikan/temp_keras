@@ -1,0 +1,11 @@
+name: Diplom
+channels:
+  - defaults
+dependencies:
+  - python=3.8.8
+  - numpy=1.19
+  - matplotlib
+  - pandas
+  - tabulate
+  - scikit-learn=0.24
+prefix: C:\Users\tme\anaconda3\envs\Diplom
