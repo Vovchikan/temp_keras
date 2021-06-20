@@ -1,3 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# csv data
 */corr.csv
 */chemic.csv
 */temp.csv
