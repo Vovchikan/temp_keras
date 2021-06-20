@@ -2,6 +2,7 @@
 import os
 import re
 import sys
+from pathlib import Path
 
 # anaconda modules
 import pandas as pd
@@ -9,9 +10,23 @@ import pandas as pd
 # Global variables
 chemical_file = 'chemic.csv'
 termal_file = 'termal.csv'
+output_dir = './output'
+
+def check_file (file_path: str) -> int:
+  file = Path(file_path)
+  if (not file.exists()):
+    raise FileNotFoundError
+  if (not file_path.endswith (".csv")):
+    raise TypeError
+
+  return 0
 
 def save_df_to_csv (df: pd.DataFrame, output_f):
-  df.to_csv (output_f, encoding='utf-8-sig')
+  completeName = os. path. join(output_dir, output_f)
+  directory = os.path.dirname(completeName)
+  if not os.path.exists(directory):
+      os.makedirs(directory)
+  df.to_csv (completeName, encoding='utf-8-sig')
 
 def open_csv_file (csv_file):
   os.system ("start " + csv_file)

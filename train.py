@@ -105,4 +105,5 @@ def start (mod_df: pd.DataFrame, show: bool = True):
   ax0.set_xlabel('predicted_creep', fontsize = 14)
   ax0.set_ylabel('actual_creep', fontsize = 14)
 
-  plt.show()
+  if (show):
+    plt.show()

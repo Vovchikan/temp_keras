@@ -14,7 +14,17 @@ output_file = 'temp.csv'
 corr_file = 'corr.csv'
 perc_of_nan = 35
 
-def main (show=False, input_file=default_input_file):
+def main (show, input_file):
+
+  try:
+    csv_funcs.check_file (input_file)
+  except TypeError:
+    print ('Wrong extension - ', input_file)
+    print ('Extension must be ".csv"')
+    exit ()
+  except FileNotFoundError:
+    print ('File - ', input_file, ' doesn\'t exist!')
+    exit ()
 
   df = pd.read_csv (input_file, encoding='utf-8')
 
@@ -32,11 +42,11 @@ def main (show=False, input_file=default_input_file):
     print ('End.')
   
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser (description='Create a ArcHydro schema')
+  parser = argparse.ArgumentParser ()
   parser.add_argument('--show', required=False,
-                      help='show graphics', default=True,
+                      help='show graphics', default=False,
                       action='store_true')
   parser.add_argument('--db', metavar='path', required=False,
-                      help='path to file with data', default=default_input_file)
+                      help='path to file with data', type=str, default=default_input_file)
   args = parser.parse_args()
   main (show=args.show, input_file=args.db)
